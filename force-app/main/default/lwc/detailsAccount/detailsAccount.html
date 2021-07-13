@@ -1,0 +1,25 @@
+<template>
+  <template if:true={account}>
+    <lightning-card title="Details">
+      <div class="slds-box sbox">
+        <div class="slds-grid slds-gutters">
+          <img
+            src="https://placedog.net/640/480?random"
+            alt="accountImage"
+            class="slds-col img"
+          />
+          <h4 class="slds-col name">{account.Name}</h4>
+          <a
+            href={url}
+            class="slds-col slds-button slds-button_neutral link">
+            Full Details
+          </a>
+        </div>
+        <div>Account Type: {account.Type}</div>
+        <div>Industry: {account.Industry}</div>
+        <div>Budget: ${account.Budget__c}</div>
+        <div>Description: {account.Description}</div>
+      </div>
+    </lightning-card>
+  </template>
+</template>

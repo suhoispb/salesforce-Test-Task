@@ -1,0 +1,12 @@
+<template>
+  <div class="card" onclick={setDetails}>
+    <div class="cardItems">
+      <img src="https://placedog.net/640/480?random" alt="accountImage" />
+      <h4 class="name">{account.Name}</h4>
+      <div>Owner: {account.Owner.Name}</div>
+      <div>Budget: ${account.Budget__c}</div>
+      <div>Employees: {account.Number_of_Employees__c}</div>
+      <div>Type: {account.Type}</div>
+    </div>
+  </div>
+</template>

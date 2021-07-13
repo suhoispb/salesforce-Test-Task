@@ -1,0 +1,27 @@
+<template>
+  <lightning-card title="Account" icon-name="custom:custom14">
+    <lightning-combobox
+      class="lcbox"
+      name="type"
+      value={value}
+      placeholder="All types"
+      options={types}
+      onchange={changeType}
+    >
+    </lightning-combobox>
+
+    <div class="slds-grid slds-wrap">
+      <template if:true={accounts} for:each={accounts} for:item="account">
+        <div
+          key={account.Id}
+          class="slds-col slds-size_4-of-12 account__item"
+        >
+          <c-account-card
+            onselect={handleSelect}
+            account={account}
+          ></c-account-card>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

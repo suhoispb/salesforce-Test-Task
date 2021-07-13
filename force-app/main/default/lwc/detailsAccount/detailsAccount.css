@@ -1,0 +1,19 @@
+.sbox {
+    margin-left: 10px; 
+    margin-right: 10px;
+}
+
+.img {
+    width: 12%; 
+    height: 8%;
+}
+
+.name {
+    width: 40%;
+}
+
+.link {
+    width: 10%; 
+    height: 7%; 
+    margin-right: 3px;
+}
