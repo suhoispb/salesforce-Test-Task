@@ -1,9 +1,7 @@
 public with sharing class Accounts {
-  public Accounts() {
-  }
-
+  
   @AuraEnabled(cacheable=true)
-  public static List<Account> getAllAccounts(String type) {
+  public static List<Account> getAccountsByType(String type) {
     String typesOfAccounts = '%' + type + '%';
     return [
       SELECT Name, Owner.Name, Number_of_Employees__c, Budget__c, Type, Id

@@ -10,7 +10,12 @@
     >
     </lightning-combobox>
 
-    <div class="slds-grid slds-wrap">
+    <div class="slds-grid slds-wrap slds-is-relative">
+      <div class="spinner">
+        <template if:true={isLoading}>
+          <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+      </div>
       <template if:true={accounts} for:each={accounts} for:item="account">
         <div
           key={account.Id}

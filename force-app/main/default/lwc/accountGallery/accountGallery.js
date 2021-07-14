@@ -1,25 +1,29 @@
 import { LightningElement, wire } from "lwc";
-import getAllAccounts from "@salesforce/apex/Accounts.getAllAccounts";
+import getAccountsByType from "@salesforce/apex/Accounts.getAccountsByType";
 import { publish, MessageContext } from "lightning/messageService";
 import AccountMessageChannel from "@salesforce/messageChannel/AccountMessageChannel__c";
 
 class AccountGallery extends LightningElement {
   accounts = [];
   value = "";
+  isLoading= true;
 
   @wire(MessageContext)
   messageContext;
 
-  @wire(getAllAccounts, { type: "$value" })
+  @wire(getAccountsByType, { type: "$value" })
   wiredSessions({ error, data }) {
     if (error) {
       this.accounts = [];
+      this.isLoading = false;
       throw new Error("Failed to retrieve accounts");
     }
     if (data) {
       this.accounts = data;
+      this.isLoading = false;
     }
   }
+
 
   handleSelect(event) {
     publish(this.messageContext, AccountMessageChannel, {
